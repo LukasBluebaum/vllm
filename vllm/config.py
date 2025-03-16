@@ -2012,6 +2012,7 @@ class SpeculativeConfig:
                         == "deepseek_v3":
                 # use the draft model from the same model:
                 self.model = self.target_model_config.model
+                self.quantization = self.target_model_config.quantization
             elif self.method in ("ngram", "[ngram]"):
                 self.model = "ngram"
             else:
