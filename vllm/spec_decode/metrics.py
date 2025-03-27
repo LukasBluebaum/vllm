@@ -179,7 +179,7 @@ class AsyncMetricsCollector:
             system_efficiency = emitted_tokens / max_num_emitted_tokens
         else:
             system_efficiency = float("nan")
-        #print("Acceptance Rate: ", draft_acceptance_rate, "System Efficiency: ", system_efficiency)
+        print("Acceptance Rate: ", draft_acceptance_rate, "System Efficiency: ", system_efficiency)
 
         return SpecDecodeWorkerMetrics(
             num_spec_tokens=k,

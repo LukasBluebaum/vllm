@@ -1369,7 +1369,7 @@ class GGUFModelLoader(BaseModelLoader):
             gguf_to_hf_name_map['blk.61.eh_proj.weight'] = 'model.layers.61.eh_proj.weight'
             gguf_to_hf_name_map['blk.61.enorm.weight'] = 'model.layers.61.enorm.weight'
             gguf_to_hf_name_map['blk.61.hnorm.weight'] = 'model.layers.61.hnorm.weight'
-            gguf_to_hf_name_map['blk.61.embed_tokens.weight'] = 'model.layers.61.embed_tokens.weight'
+            gguf_to_hf_name_map['blk.61.token_embd.weight'] = 'model.layers.61.embed_tokens.weight'
 
         arch = None
         for key, value in gguf.MODEL_ARCH_NAMES.items():

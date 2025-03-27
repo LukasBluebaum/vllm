@@ -1232,6 +1232,7 @@ class EngineArgs:
 
             spec_config_dict = {
                 "model": self.speculative_model,
+                "hf_config_path": self.hf_config_path,
                 "quantization": self.speculative_model_quantization,
                 "max_model_len": self.speculative_max_model_len,
                 "draft_tensor_parallel_size":

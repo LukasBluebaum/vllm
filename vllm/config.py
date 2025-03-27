@@ -1927,6 +1927,7 @@ class SpeculativeConfig:
     num_speculative_tokens: int = field(default=None,
                                         init=True)  # type: ignore
     method: Optional[str] = None
+    hf_config_path: Optional[str] = None
     acceptance_method: str = "rejection_sampler"
     draft_tensor_parallel_size: Optional[int] = None
     disable_logprobs: bool = True
@@ -2011,7 +2012,9 @@ class SpeculativeConfig:
             if self.target_model_config.hf_text_config.model_type \
                         == "deepseek_v3":
                 # use the draft model from the same model:
-                self.model = self.target_model_config.model
+                #self.model = self.target_model_config.model
+                self.model = "/nfs/scratch_2/lukas_bluebaum/v3_new_MTP/DeepSeek-v3-0324-Q6_K-MTP.gguf"
+                #self.model = "/nfs/scratch_2/lukas_bluebaum/R1_MTP/DeepSeek-R1-Q8_0-MTP.gguf"
                 self.quantization = self.target_model_config.quantization
             elif self.method in ("ngram", "[ngram]"):
                 self.model = "ngram"
@@ -2065,6 +2068,7 @@ class SpeculativeConfig:
             if self.model is not None:
                 self.draft_model_config = ModelConfig(
                     model=self.model,
+                    hf_config_path=self.hf_config_path,
                     task="draft",
                     tokenizer=self.target_model_config.tokenizer,
                     tokenizer_mode=self.target_model_config.tokenizer_mode,
